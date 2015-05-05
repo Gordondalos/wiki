@@ -1,0 +1,57 @@
+Установка хрома на дебиан
+
+Установка браузера Google Chrome в Debian
+
+Для установки данного новомодного браузера в Debian нужно просто добавить хромовский репозитарий в sources.list, а дальше стандартными средствами установить пакет google-chrome
+Все дальнейшие действия конечно же нужно выполнять из под рута.
+Итак, сначала добавим репозитарий google-chrome в /etc/apt/sources.list. Можно такой командой:
+
+root@black:~# echo -e '### Google Chrome ###'"\n"'deb http://dl.google.com/linux/chrome/deb/ stable main' > /etc/apt/sources.list.d/google-chrome.list
+
+
+Для того чтобы apt не орал на то что ему нехватает gpg ключа для данного репозитария, делаем следующее:
+
+root@black:~# wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+После этого перечитаем пакеты в репозитариях:
+
+root@black:~# apt-get update
+Смотрим что у нас появилось теперь для установки по имени google-chrome:
+
+root@black:~# apt-cache search google-chrome
+google-chrome-beta - The web browser from Google
+google-chrome-stable - The web browser from Google
+google-chrome-unstable - The web browser from Google
+root@black:~#
+Ставим!
+
+root@black:~# apt-get install google-chrome-stable
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following extra packages will be installed:
+  libcurl3
+The following NEW packages will be installed:
+  google-chrome-stable libcurl3
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 34.3 MB of archives.
+After this operation, 131 MB of additional disk space will be used.
+Do you want to continue [Y/n]?
+Get:1 http://ftp.ua.debian.org/debian/ wheezy/main libcurl3 amd64 7.26.0-1 [330 kB]
+Get:2 http://dl.google.com/linux/chrome/deb/ stable/main google-chrome-stable amd64 21.0.1180.81-r151980 [34.0 MB]
+Fetched 34.3 MB in 3s (10.8 MB/s)
+Selecting previously unselected package libcurl3:amd64.
+(Reading database ... 133229 files and directories currently installed.)
+Unpacking libcurl3:amd64 (from .../libcurl3_7.26.0-1_amd64.deb) ...
+Selecting previously unselected package google-chrome-stable.
+Unpacking google-chrome-stable (from .../google-chrome-stable_21.0.1180.81-r151980_amd64.deb) ...
+Processing triggers for man-db ...
+Processing triggers for menu ...
+Processing triggers for desktop-file-utils ...
+Processing triggers for gnome-menus ...
+Setting up libcurl3:amd64 (7.26.0-1) ...
+Setting up google-chrome-stable (21.0.1180.81-r151980) ...
+update-alternatives: using /usr/bin/google-chrome to provide /usr/bin/x-www-browser (x-www-browser) in auto mode
+update-alternatives: using /usr/bin/google-chrome to provide /usr/bin/gnome-www-browser (gnome-www-browser) in auto mode
+Processing triggers for menu ...
+root@black:~#
+Все! Браузер стоит в системе и готов к работе. Запустить можно используя меню вашего DM.
