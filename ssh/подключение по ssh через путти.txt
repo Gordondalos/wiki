@@ -1,0 +1,18 @@
+Не всегда в системе линукс установлены ssh
+
+для проверки использваоть
+netstat -antp
+это выведет всю информацию о портах и там должен быть сервер ssh
+
+
+
+для установки использовать 
+$ sudo apt-get update
+$ sudo apt-get install openssh-server
+
+
+допустим имя пользователя (user) = gordondalos, а имя компа твое (host) - reanimatolog (172.16.202.203)
+
+тогда:
+
+gordondalos@reanimatolog  = gordondalos@172.16.202.203

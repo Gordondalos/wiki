@@ -1,0 +1,101 @@
+gordondalos@gordondalos-VirtualBox ~ $ sudo apt-get install openssh-server
+[sudo] password for gordondalos: 
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Будут установлены следующие дополнительные пакеты:
+  openssh-client ssh-import-id
+Предлагаемые пакеты:
+  libpam-ssh keychain monkeysphere openssh-blacklist openssh-blacklist-extra
+  rssh molly-guard
+НОВЫЕ пакеты, которые будут установлены:
+  openssh-server ssh-import-id
+Пакеты, которые будут обновлены:
+  openssh-client
+обновлено 1, установлено 2 новых пакетов, для удаления отмечено 0 пакетов, и 746 пакетов не обновлено.
+Необходимо скачать 346 kB/1 288 kB архивов.
+После данной операции, объём занятого дискового пространства возрастёт на 881 kB.
+Хотите продолжить [Д/н]? д
+Получено:1 http://archive.ubuntu.com/ubuntu/ precise-updates/main openssh-server amd64 1:5.9p1-5ubuntu1.4 [339 kB]
+Получено:2 http://archive.ubuntu.com/ubuntu/ precise/main ssh-import-id all 2.10-0ubuntu1 [6 598 B]
+Получено 346 kБ за 6с (56,6 kБ/c)                                              
+Предварительная настройка пакетов ...
+(Чтение базы данных ... на данный момент установлено 140978 файлов и каталогов.)
+Подготовка к замене пакета openssh-client 1:5.9p1-5ubuntu1 (используется файл .../openssh-client_1%3a5.9p1-5ubuntu1.4_amd64.deb) ...
+Распаковывается замена для пакета openssh-client ...
+Selecting previously unselected package openssh-server.
+Распаковывается пакет openssh-server (из файла .../openssh-server_1%3a5.9p1-5ubuntu1.4_amd64.deb)...
+Selecting previously unselected package ssh-import-id.
+Распаковывается пакет ssh-import-id (из файла .../ssh-import-id_2.10-0ubuntu1_all.deb)...
+Обрабатываются триггеры для man-db ...
+Обрабатываются триггеры для ureadahead ...
+ureadahead will be reprofiled on next reboot
+Обрабатываются триггеры для ufw ...
+Настраивается пакет openssh-client (1:5.9p1-5ubuntu1.4) ...
+Настраивается пакет openssh-server (1:5.9p1-5ubuntu1.4) ...
+Creating SSH2 RSA key; this may take some time ...
+Creating SSH2 DSA key; this may take some time ...
+Creating SSH2 ECDSA key; this may take some time ...
+ssh start/running, process 8078
+Настраивается пакет ssh-import-id (2.10-0ubuntu1) ...
+gordondalos@gordondalos-VirtualBox ~ $ сдуфк
+сдуфк: command not found
+gordondalos@gordondalos-VirtualBox ~ $ clear
+
+gordondalos@gordondalos-VirtualBox ~ $ pwd
+/home/gordondalos
+gordondalos@gordondalos-VirtualBox ~ $ mkdir mybackup
+gordondalos@gordondalos-VirtualBox ~ $ ls
+mybackup  Документы  Изображения  Общедоступные  Шаблоны
+Видео     Загрузки   Музыка       Рабочий стол
+gordondalos@gordondalos-VirtualBox ~ $ rsync -av --rsh=ssh gordondalos@192.168.0.104:/home/gordondalos/rsyncbackups /home/gordondalos/mybackup
+The authenticity of host '192.168.0.104 (192.168.0.104)' can't be established.
+ECDSA key fingerprint is 4f:fe:ab:26:09:c2:65:6d:37:f2:93:e6:33:e7:90:57.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.0.104' (ECDSA) to the list of known hosts.
+gordondalos@192.168.0.104's password: 
+receiving incremental file list
+rsyncbackups/
+rsyncbackups/file1
+rsyncbackups/file2
+rsyncbackups/file3
+
+sent 72 bytes  received 227 bytes  12.72 bytes/sec
+total size is 0  speedup is 0.00
+gordondalos@gordondalos-VirtualBox ~ $ rsync -av --rsh=ssh /home/mybackup/rsyncbackup gordondalos@192.168.0.104:/home/gordondalos/rsyncbackups
+gordondalos@192.168.0.104's password: 
+sending incremental file list
+rsync: change_dir "/home/mybackup" failed: No such file or directory (2)
+
+sent 12 bytes  received 12 bytes  4.36 bytes/sec
+total size is 0  speedup is 0.00
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1070) [sender=3.0.9]
+gordondalos@gordondalos-VirtualBox ~ $ rsync -av --rsh=ssh /home/gordondalos/mybackup/rsyncbackup gordondalos@192.168.0.104:/home/gordondalos/rsyncbackups
+gordondalos@192.168.0.104's password: 
+sending incremental file list
+rsync: link_stat "/home/gordondalos/mybackup/rsyncbackup" failed: No such file or directory (2)
+
+sent 12 bytes  received 12 bytes  5.33 bytes/sec
+total size is 0  speedup is 0.00
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1070) [sender=3.0.9]
+gordondalos@gordondalos-VirtualBox ~ $ rsync -av --rsh=ssh /home/gordondalos/mybackup/rsyncbackup gordondalos@192.168.0.104:/home/gordondalos/rsyncbackups
+gordondalos@192.168.0.104's password: 
+sending incremental file list
+rsync: link_stat "/home/gordondalos/mybackup/rsyncbackup" failed: No such file or directory (2)
+
+sent 12 bytes  received 12 bytes  3.20 bytes/sec
+total size is 0  speedup is 0.00
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1070) [sender=3.0.9]
+gordondalos@gordondalos-VirtualBox ~ $ rsync -av --rsh=ssh ~/mybackup/rsyncbackups  gordondalos@192.168.0.104:/home/gordondalos/rsyncbackups
+gordondalos@192.168.0.104's password: 
+sending incremental file list
+rsyncbackups/
+rsyncbackups/file1
+rsyncbackups/file2
+rsyncbackups/file3
+
+sent 222 bytes  received 73 bytes  84.29 bytes/sec
+total size is 0  speedup is 0.00
+gordondalos@gordondalos-VirtualBox ~ $ 
+
+
