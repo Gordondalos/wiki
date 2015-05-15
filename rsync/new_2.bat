@@ -6,8 +6,10 @@ set PATH_TO_SSH=/usr/bin/ssh
 set PATH_TO_RSYNC_FROM_WINDOWS=C:\Cygwin\bin\rsync
 
 
-::set PATH_TO_SECRET_FILE=/cygdrive/c/rsyncd.scrt
 
+:: так пишутся коменты
+rem И так пишутся коменты
+::set PATH_TO_SECRET_FILE=/cygdrive/c/rsyncd.scrt
 ::--password-file=/usr/local/etc/rsyncd.scrt
 ::sshpass -p "abcdef"
 
