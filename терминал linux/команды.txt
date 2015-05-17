@@ -279,6 +279,12 @@ dpkg-query -W -f='${Installed-Size;10}\t${Package}\n' | sort -k1,1n	показывает р
 
 *************************************************************************************************
 Пользователи и группы
+
+Все пользователи лежат в файле /etc/passwd. Для того, что бы вывести их - пишем
+
+cat /etc/passwd
+
+
 groupadd group_name	создать новую группу с именем group_name
 groupdel group_name	удалить группу group_name
 groupmod -n new_group_name old_group_name	переименовать группу old_group_name в new_group_name
