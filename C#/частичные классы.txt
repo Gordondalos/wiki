@@ -1,0 +1,51 @@
+
+
+ ласс можно разбить между двум€ файлами
+дл€ этого имеетс€ ключевое слово partial
+
+например
+
+namespace Classes
+{
+	partial class PartialClass
+	{
+		public void MethodFromPartial_____1()
+		{
+			Console.WriteLine("ѕервый")
+		}
+	}
+
+}
+
+// это во втором ‘айле
+namespace Classes
+{
+	partial class PartialClass
+	{
+		public void MethodFromPartial_______2()
+		{
+			Console.WriteLine("¬торой")
+		}
+	}
+
+}
+
+
+также существуют частичные методы
+
+его определ€ют в одном месте
+а все пишут в другом месте его реализуют
+частичные методы не могут возвращать значени€!
+во вторых они всегда pived то есть дл€ них нужно делать метод доступа
+в третьих - реализаци€ метода не об€зательна
+
+это в первом фале
+partial void partialMethod();
+
+
+Ёто второй кусок частичного метода в другом файле
+partial void partialMethod()
+{
+	/* тут вс€кое говно*/
+}
+
