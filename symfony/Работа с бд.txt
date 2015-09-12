@@ -1,0 +1,3 @@
+Импорт данных из бд
+
+php.exe C:\xampp\htdocs\blog\app\console doctrine:mapping:import BlogArticleBundle yml
