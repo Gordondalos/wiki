@@ -1,0 +1,43 @@
+ƒирективы 
+например ng-app в документации пишетс€ ngApp
+как и другие может писатьс€ ng:app, ng_app, data-ng-app
+data-ng-app - более правильна€ с точки зрени€ HTML5
+
+data-ng-app - это директива того что дальше идет код ангул€ра
+
+ng-init - директива инициализации например
+<div data-ng-init="name = 'World'">
+потом этот нейм можно вывести где угодно
+
+ng-bind, нужна чтобы скрыть фигурные скобки и убрать мерцани€
+<p> Hello <span data-ng-bind="name"></span></p>
+
+ng-controler  это директива обычна€ функци€ на джаваскрипте
+
+
+ng-repeat - функци€ повторени€
+сначала обь€вл€ем
+phonecatApp.controller('PhoneListCtrl', function($scope){
+$scope.phones = [
+    {'name':'Nexus', 'snippet':'ќписание нашего телефона нексус'},
+    {'name':'Motorola','snippet': 'ќписание нашей моторолы'},
+    {'name':'Sumsung', 'snippet':'описание золотого самунга'}
+];
+
+});
+
+....
+а потом выводим
+
+<body ng-controller="PhoneListCtrl">
+
+<ul>
+    <li ng-repeat="phone in phones">
+        <span>{{phone.name}}</span>
+        <p>{{phone.snippet}}</p>
+    </li>
+
+</ul>
+
+
+</body>

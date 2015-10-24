@@ -1,0 +1,12 @@
+1. устанавливаем gitbush
+2. идем сюда http://angular.ru/tutorial
+3.≈сли не установлен node.js устанавливаем
+4. ”станавливаем карму в гитбаше ->  npm install -g karma
+5. копирует с гита ->  git clone git://github.com/angular/angular-phonecat.git
+6. переходим в директорию -> cd angular-phonecat
+7. устанавливаем пакетный менеджер бауэр -> npm install -g bower
+8. устанавливаем все зависимости -> bower install
+9. стартуем сервер (все это в папке angular-phonecat) -> npm start
+10. Ќам показывают по какому адресу доступен сервер -> localhost:8000
+12. идем в папку app и это и есть index.html? также этого можно не делать а запустить пр€мо из
+phpstorm на его подн€том сервере

@@ -1,0 +1,20 @@
+модуль это кусок кода в ангуляре который может содержать куу контролеров и переменных
+
+пример
+
+<html ng-app="demoModule">
+
+...
+
+var demoModule;
+demoModule = angular.module('demoModule',[]);
+
+demoModule.controller('DemoCtrl', function($scope){
+    $scope.name = 'World'
+
+
+...
+
+<div ng-controller="DemoCtrl">
+Hello {{name}}
+</div>
