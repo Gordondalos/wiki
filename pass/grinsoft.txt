@@ -1,0 +1,7 @@
+host: greensoft.kg
+login: gordondalos
+pass: T9LvupCwuJ
+
+mysql
+root
+212354568789
