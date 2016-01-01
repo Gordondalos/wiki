@@ -1,7 +1,20 @@
 host: greensoft.kg
 login: gordondalos
-pass: T9LvupCwuJ
+pass: T9LvupCwuJ zaq1@WSXcde3$
 
 mysql
 root
 212354568789
+
+http://support.greensoft.kg/issues/11
+
+
+Если кто забыл, доступ к облаку:
+http://storage.greensoft.kg
+login: greensoft
+pass: Cnhjafynby$$$
+
+
+brouser-tester
+aplana@live.com
+Aplana2008
