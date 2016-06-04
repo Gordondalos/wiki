@@ -1,0 +1,45 @@
+
+Твиг
+{% if (is_granted('ROLE_ZAV') or is_granted('ROLE_ADMIN')) %}
+                    <th>{{ 'Actions'|trans }}</th>
+{% endif %}
+
+
+Securyty
+
+    access_control:
+
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+#        - { path: ^/, role: ROLE_USER }
+        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/group/, role: ROLE_ADMIN }
+        - { path: ^/section/section/new, role: [ROLE_ADMIN ,ROLE_ZAV]}
+        - { path: ^/section/section/.*/edit, role: [ROLE_ADMIN ,ROLE_ZAV]}
+        - { path: ^/section/section/.*/delete, role: [ROLE_ADMIN ,ROLE_ZAV]}
+        - { path: ^/section/sectiongroup/new, role: [ROLE_ADMIN ,ROLE_ZAV]}
+        - { path: ^/section/sectiongroup/.*/show, role: [ROLE_ADMIN ,ROLE_ZAV,ROLE_TRAINER]}
+        - { path: ^/section/sectiongroup/.*/edit, role: [ROLE_ADMIN ,ROLE_ZAV]}
+        - { path: ^/section/sectiongroup/.*/delete, role: [ROLE_ADMIN ,ROLE_ZAV]}
+        - { path: ^/section/sectiongroup/, role: [ROLE_ADMIN ,ROLE_ZAV,ROLE_TRAINER]}
+        - { path: ^/section/useringroupsection/, role: [ROLE_ADMIN ,ROLE_ZAV,ROLE_METODIST]}
+        - { path: ^/journal/, role: [ROLE_ADMIN ,ROLE_TRAINER]}
+        - { path: ^/norms/norms/.*/show, role: [ROLE_ADMIN ,ROLE_TRAINER]}
+        - { path: ^/norms/norms/.*/edit, role: [ROLE_ADMIN,ROLE_ZAV,ROLE_METODIST]}
+        - { path: ^/norms/norms/.*/delete, role: [ROLE_ADMIN,ROLE_ZAV,ROLE_METODIST]}
+        - { path: ^/norms/norms/new, role: [ROLE_ADMIN,ROLE_ZAV,ROLE_METODIST]}
+        - { path: ^/sportholls/, role: ROLE_ADMIN }
+        - { path: ^/agegroup/, role: ROLE_ADMIN }
+
+        - { path: ^/scheluder/new_sheluder_section, role: [ROLE_ADMIN,ROLE_ZAV,ROLE_METODIST]}
+        - { path: ^/scheluder/.*/delete, role: [ROLE_ADMIN,ROLE_ZAV,ROLE_METODIST]}
+        - { path: ^/scheluder/, role: [ROLE_ADMIN ,ROLE_SPORTSMEN,ROLE_TRAINER,ROLE_ZAV,ROLE_METODIST,ROLE_OPEKUN]}
+        - { path: ^/user/new, role: [ROLE_ADMIN,ROLE_ZAV,ROLE_METODIST] }
+        - { path: ^/user/.*/edit, role: [ROLE_ADMIN,ROLE_ZAV,ROLE_METODIST] }
+        - { path: ^/user/.*/delete, role: [ROLE_ADMIN,ROLE_ZAV,ROLE_METODIST] }
+        - { path: ^/user/.*/show, role: [ROLE_ADMIN ,ROLE_SPORTSMEN,ROLE_TRAINER,ROLE_ZAV,ROLE_METODIST,ROLE_OPEKUN] }
+        - { path: ^/norms/norms/, role:[ROLE_ADMIN ,ROLE_SPORTSMEN,ROLE_TRAINER,ROLE_ZAV,ROLE_METODIST,ROLE_OPEKUN]}
+        - { path: ^/section/, role: [ROLE_ADMIN ,ROLE_SPORTSMEN,ROLE_TRAINER,ROLE_ZAV,ROLE_METODIST,ROLE_OPEKUN]}
+        - { path: ^/, role: [ROLE_ADMIN ,ROLE_SPORTSMEN,ROLE_TRAINER,ROLE_ZAV,ROLE_METODIST,ROLE_OPEKUN]}

@@ -1,2 +1,8 @@
 Вывод даты
 {{entity.dateCreated|date('d.m.Y')}}
+
+
+Доступ в зависимости от роли
+{% if (is_granted('ROLE_ZAV') or is_granted('ROLE_ADMIN')) %}
+                    <th>{{ 'Actions'|trans }}</th>
+ % endif %}

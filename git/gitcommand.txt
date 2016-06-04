@@ -1,0 +1,4 @@
+Команды гита
+
+// запушить репозиторий
+git push --progress "https://github.com/Gordondalos/nwp.git" master

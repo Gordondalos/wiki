@@ -1,0 +1,111 @@
+<?php
+
+
+// Работа с событиями
+// Алогирм (смотри на цифры)
+
+// 1. Сделать папку EventListener том бандле где будет события
+// 2. Добавляем Класс например UserAgentSubscriber
+
+namespace AppBundle\EventListener;
+
+// 6
+use Prs\Log\LoggetInterface;
+
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+//9
+use Symfony\Component\HttpKernel\Event\GetResponseEvent
+
+
+class UserAgentSubscriber implements EventSubscriberInterface
+{
+	//6
+	public function __construct(LoggetInterface $logger)
+	{
+		$this->logger = $loger;
+	}
+	
+	
+	//4. Реализовали метод выполняющийся на данное событие
+	
+	// на 8 шаге тут появился $event
+	
+	// на 9 шаге в параметры передали GetResponseEvent
+	public function onKernrlRequest(GetResponseEvent $event)
+	{
+		//4.
+		// die('it works');
+		
+		//6/
+		$this->logger->info('RRRRAAAA');
+		
+		//8 Сделаем дамп ивента
+		//dump($event);
+		
+		//10 получили реквес и данные из него
+		$request = $event->getRequest();
+		$userAgent = $request->headers->get('User-Agent');
+		// и залогировали
+		$this->logger->info('The user agent is' .$userAgent);
+		
+		
+	}
+		
+	
+	
+	//3 Обьявили функцию возвращающую массив с названием события => название функции
+	public static function getSubscribedEvents()
+	{
+			return array (
+				'kernel.request' => 'onKernrlRequest'
+				
+			);
+	}
+
+
+}
+
+// Итак подписчик событий готов
+
+// 5  Далее мы идем в файл app//config/services.yml и регистрируем сервис
+
+
+services:
+	user_agent_subscriber:
+		class: AppBundle\EventListener\UserAgentSubscriber
+		arguments: []
+		tags:
+			-{ name: kernel.event_subscriber}
+		
+
+
+// И все после этого рабоает (5 это все, но можно развивать дальше)
+
+
+// 6 Зарегестрировали в конструкторе логер сервис
+// 7. Далее мы идем в файл app//config/services.yml и добавили аргумент "@logger"
+
+services:
+	user_agent_subscriber:
+		class: AppBundle\EventListener\UserAgentSubscriber
+		arguments: ['@logger']
+		tags:
+			-{ name: kernel.event_subscriber}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
