@@ -1,0 +1,13 @@
+чтобы передать из твига в js  данные
+можно сделать так, например я делал для
+передачи в ангуляр
+    <div ng-controller="sportListController">
+
+        <script>
+            var scheluder = {{ scheluder|json_encode()|raw }};
+        </script>
+
+
+        {{  '{{ scheluder|json }}' }}
+
+    <input type="text" ng-model="query">
